@@ -1,0 +1,38 @@
+@page
+@model ShowDataModel
+@{
+    ViewData["Title"] = "Show Data";
+}
+
+<h2>📊 Show Data from Fabric Database</h2>
+
+<form method="post">
+    <label>Select Table:</label>
+    <select asp-for="SelectedTable" asp-items="@(new SelectList(Model.Tables))" class="form-select" style="width:250px;"></select>
+    <button type="submit" class="btn btn-primary mt-2">Load</button>
+</form>
+
+@if (Model.TableData != null)
+{
+    <table class="table table-bordered table-striped mt-4">
+        <thead>
+            <tr>
+                @foreach (System.Data.DataColumn col in Model.TableData.Columns)
+                {
+                    <th>@col.ColumnName</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (System.Data.DataRow row in Model.TableData.Rows)
+        {
+            <tr>
+                @foreach (var item in row.ItemArray)
+                {
+                    <td>@item</td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+}
