@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FabricWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c1f76648bfa9b7dc4fcd05d37fb7f959c362554")]
 [assembly: System.Reflection.AssemblyProductAttribute("FabricWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FabricWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
