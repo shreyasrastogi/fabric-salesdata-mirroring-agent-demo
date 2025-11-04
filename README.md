@@ -1,5 +1,15 @@
 # Project AutoLake
+Legacy sales systems often break downstream data pipelines whenever schemas change—causing delays, report failures, and manual rework.
+Project AutoLake uses Microsoft Fabric Open Mirroring to eliminate data pipeline maintenance entirely.
+Schema and data changes from source systems are detected automatically and reflected in the Lakehouse within minutes.
+A Fabric Data Agent is then connected to Azure AI Agent Service, enabling natural language queries and real-time analytics without rebuilding models or ETL processes.
+This delivers zero downtime, zero pipelines, and instant business insights—all with lower operational overhead.
+
 Repo to show Open mirroring in Fabric and then  chat with your data using Fabric Agent and Azure AI agent Service and show data in Front end in Grid
+
+## Architecture Overview
+
+<img src="images/ArchitectureAutolake.jpeg" width="1000"/>
 
 # Fabric Web App
 
