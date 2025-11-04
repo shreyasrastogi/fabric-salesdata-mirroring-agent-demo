@@ -11,6 +11,117 @@ Repo to show Open mirroring in Fabric and then  chat with your data using Fabric
 
 <img src="images/ArchitectureAutolake.jpeg" width="1000"/>
 
+## 🚀 Project Setup Guide – AutoLake (Fabric Open Mirroring + AI Agent)
+
+### 📂 1. Create Initial Data Files
+
+1. Set up **Azure SQL Database** (or SQL Server) and restore the **AdventureWorksLT** sample database.
+2. Open **Azure Data Studio**, connect to the database.
+3. Export the following tables as `.csv` files:
+   - `Customer`
+   - `Product`
+   - `SalesOrderDetail`
+   - `SalesOrderHeader`
+
+---
+
+### 💠 2. Configure Microsoft Fabric & Open Mirroring
+
+1. In Azure Portal → Create a **Fabric Capacity (F2 SKU)**.
+2. Open **Microsoft Fabric Portal** → **Data Engineering** experience.
+3. Create a **Mirrored Database** and name it:
+
+4. Upload the 4 CSV files exported earlier.
+- ✅ Fabric Open Mirroring auto-creates tables.
+- ✅ Data is replicated and available within minutes.
+
+---
+
+### 🤖 3. Create a Fabric Data Agent
+
+1. Go to **Fabric → Data Factory → AI Data Agent**.
+2. Create a new **Data Agent** and select the mirrored database.
+3. Include all 4 tables:
+- Customer  
+- Product  
+- SalesOrderDetail  
+- SalesOrderHeader  
+4. Publish the agent.
+5. Test sample questions like:
+- `"count of customers"`
+- `"number of orders by year"`
+
+---
+
+### 🛠 4. Simulate Schema Change (Add New Column)
+
+Run the following query in Azure SQL to add a new column and populate dummy values:
+
+
+ALTER TABLE SalesLT.SalesOrderHeader
+ADD MarketingChannel NVARCHAR(50) NULL;
+
+UPDATE SalesLT.SalesOrderHeader
+SET MarketingChannel =
+ CASE
+     WHEN SalesOrderID % 3 = 0 THEN 'Email'
+     WHEN SalesOrderID % 3 = 1 THEN 'Instagram'
+     ELSE 'SEO'
+ END;
+
+
+
+
+Export the updated SalesOrderHeader table as CSV again.
+
+Upload it to the Mirrored Database in Fabric.
+
+✅ Select “Update existing table” when uploading.
+
+Wait 1–2 minutes for Fabric to auto-replicate schema & data.
+
+## 5. Refresh Fabric Agent to Reflect New Schema
+
+Open your Fabric Data Agent.
+
+Click Refresh Schema.
+
+Republish the agent so the new MarketingChannel column is available for queries.
+
+Now you can ask:
+
+"Total orders by Marketing Channel"
+
+"Revenue by Marketing Channel"
+
+## 6.  Integrate with Azure AI Agent Service
+
+Go to Azure AI Agent Service → Create New Agent (Region: East US2).
+
+From Fabric Data Agent, copy:
+
+Workspace ID
+
+Artifact ID
+
+## In Azure AI Agent Service:
+
+Add Fabric Agent as a Knowledge Source.
+
+Provide a system message like:
+
+For all user questions related to data, generate SQL and query the connected Fabric Database.
+
+
+From Fabric → Lakehouse / SQL endpoint → Copy Connection String for your front-end or API.
+
+✅ Final Outcome
+
+✔ Automatic data ingestion using Fabric Open Mirroring
+✔ Schema changes detected & replicated within minutes
+✔ Fabric Data Agent updated for AI-powered natural language queries
+✔ Integrated with Azure AI Agent Service for web/app/Teams chatbot interface
+
 # Fabric Web App
 
 A web application that demonstrates integration between Microsoft Fabric and Azure AI Agents, allowing users to view mirrored SQL data and interact with it through natural language queries.
