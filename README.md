@@ -25,12 +25,12 @@ The application uses the following configurations:
 
 - **Fabric Database Connection**:
   ```csharp
-  Server: "6yhelygfwkyubovlpdcabb67qm-sq4iyhf5s7pe5kiegzkfmsfjfi.datawarehouse.fabric.microsoft.com"
+  Server: "Fabric DataBase Coonection String "
   Database: "AdventureWorksLT_Mirrored"
 
 ## Azure AI Agent 
-Project Endpoint: "https://test2708.services.ai.azure.com/api/projects/firstProject"
-Agent ID: "asst_EkkDXEGzL9dMWRaRjSj7jG4r"
+Project Endpoint: "Project endpoint"
+Agent ID: "Agent ID visible in playground"
 
 Getting Started
 Clone the repository
