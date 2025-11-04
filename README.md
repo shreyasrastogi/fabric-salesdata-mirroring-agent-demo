@@ -1,2 +1,64 @@
-# fabric-salesdata-mirroring-agent-demo
+# Project AutoLake
 Repo to show Open mirroring in Fabric and then  chat with your data using Fabric Agent and Azure AI agent Service and show data in Front end in Grid
+
+# Fabric Web App
+
+A web application that demonstrates integration between Microsoft Fabric and Azure AI Agents, allowing users to view mirrored SQL data and interact with it through natural language queries.
+
+## Features
+
+- **Data Visualization**: View mirrored Fabric SQL data from AdventureWorksLT database
+- **AI-Powered Chat**: Interact with your data using Azure AI Agents
+- **Session Management**: Persistent chat history using ASP.NET Core session state
+- **Responsive UI**: Modern interface built with Bootstrap 5
+
+## Prerequisites
+
+- .NET 9.0
+- Azure Subscription
+- Microsoft Fabric Workspace
+- Azure AI Project configured with an agent
+
+## Configuration
+
+The application uses the following configurations:
+
+- **Fabric Database Connection**:
+  ```csharp
+  Server: "6yhelygfwkyubovlpdcabb67qm-sq4iyhf5s7pe5kiegzkfmsfjfi.datawarehouse.fabric.microsoft.com"
+  Database: "AdventureWorksLT_Mirrored"
+
+## Azure AI Agent 
+Project Endpoint: "https://test2708.services.ai.azure.com/api/projects/firstProject"
+Agent ID: "asst_EkkDXEGzL9dMWRaRjSj7jG4r"
+
+Getting Started
+Clone the repository
+Ensure you have .NET 9.0 SDK installed
+Configure Azure credentials (the app uses DefaultAzureCredential)
+Run the application
+
+dotnet run
+
+
+## Features in Detail
+
+Data Viewing
+Navigate to "Show Data" page
+Select a table from the dropdown
+View mirrored data from Fabric SQL database
+
+## Chat Interface
+Go to "Agent Chat" page
+Ask natural language questions about your data
+View chat history persisted through session
+
+## Authentication
+The application uses Azure DefaultAzureCredential for authentication with both Fabric SQL Database and Azure AI Services.
+
+Contributing
+Fork the repository
+Create a feature branch
+Commit your changes
+Push to the branch
+Create a Pull Request
